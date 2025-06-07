@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% block content %}
+    <p>あなたの選択: {{ player.choice }}</p>
+    <p>近傍の行動:</p>
+    <ul>
+        {% for n in neighbors %}
+            <li>{{ n.id_in_group }} : {{ n.choice }}{% if show_payoff %} ({{ n.payoff }}){% endif %}</li>
+        {% endfor %}
+    </ul>
+    <img src="data:image/png;base64,{{ network_image }}" alt="network">
+    {{ next_button }}
+{% endblock %}
